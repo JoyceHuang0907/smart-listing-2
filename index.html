@@ -400,6 +400,28 @@
             font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .check-label {
+            background: linear-gradient(135deg, #ff4757 0%, #c44569 100%);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            animation: pulse 2s infinite;
+            box-shadow: 0 2px 8px rgba(255, 71, 87, 0.3);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
         .field-content {
@@ -416,6 +438,16 @@
             font-family: inherit;
             transition: all 0.3s ease;
             background: rgba(255, 255, 255, 0.9);
+        }
+
+        .field-content .original-display {
+            white-space: pre-line;
+            line-height: 1.5;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            min-height: 60px;
+            border: 1px solid #e0e0e0;
         }
 
         #aiDesc {
@@ -834,7 +866,9 @@
                     <div class="field-row">
                         <div class="original-data">
                             <div class="field-header">產品系統ID(A欄) - 原始資料</div>
-                            <div class="field-content" id="originalSystemId">-</div>
+                            <div class="field-content">
+                                <div class="original-display" id="originalSystemId">-</div>
+                            </div>
                         </div>
                         <div class="ai-data">
                             <div class="field-header">產品系統ID(A欄) - AI生成</div>
@@ -847,10 +881,15 @@
                     <div class="field-row">
                         <div class="original-data">
                             <div class="field-header">產品別稱(E欄) - 原始資料</div>
-                            <div class="field-content" id="originalAlias">-</div>
+                            <div class="field-content">
+                                <div class="original-display" id="originalAlias">-</div>
+                            </div>
                         </div>
                         <div class="ai-data">
-                            <div class="field-header">產品別稱(E欄) - AI生成</div>
+                            <div class="field-header">
+                                產品別稱(E欄) - AI生成
+                                <span class="check-label">請檢查</span>
+                            </div>
                             <div class="field-content">
                                 <textarea id="aiAlias" rows="3"></textarea>
                                 <button class="refresh-btn" onclick="refreshField('alias')">🔄 重新生成</button>
@@ -861,7 +900,9 @@
                     <div class="field-row">
                         <div class="original-data">
                             <div class="field-header">產品圖片(F欄) - 原始資料</div>
-                            <div class="field-content" id="originalImage">-</div>
+                            <div class="field-content">
+                                <div class="original-display" id="originalImage">-</div>
+                            </div>
                         </div>
                         <div class="ai-data">
                             <div class="field-header">產品圖片(F欄) - 自動生成</div>
@@ -874,7 +915,9 @@
                     <div class="field-row">
                         <div class="original-data">
                             <div class="field-header">產品圖片說明(G欄) - 原始資料</div>
-                            <div class="field-content" id="originalImageDesc">-</div>
+                            <div class="field-content">
+                                <div class="original-display" id="originalImageDesc">-</div>
+                            </div>
                         </div>
                         <div class="ai-data">
                             <div class="field-header">產品圖片說明(G欄) - 自動生成</div>
@@ -893,10 +936,15 @@
                     <div class="field-row">
                         <div class="original-data">
                             <div class="field-header">Desc描述(I欄) - 原始資料</div>
-                            <div class="field-content" id="originalDesc">-</div>
+                            <div class="field-content">
+                                <div class="original-display" id="originalDesc">-</div>
+                            </div>
                         </div>
                         <div class="ai-data">
-                            <div class="field-header">Desc描述(I欄) - AI生成</div>
+                            <div class="field-header">
+                                Desc描述(I欄) - AI生成
+                                <span class="check-label">請檢查</span>
+                            </div>
                             <div class="field-content">
                                 <textarea id="aiDesc" rows="4"></textarea>
                                 <button class="refresh-btn" onclick="refreshField('desc')">🔄 重新生成</button>
@@ -907,10 +955,15 @@
                     <div class="field-row">
                         <div class="original-data">
                             <div class="field-header">產品特性(K欄) - 原始資料</div>
-                            <div class="field-content" id="originalFeatures">-</div>
+                            <div class="field-content">
+                                <div class="original-display" id="originalFeatures">-</div>
+                            </div>
                         </div>
                         <div class="ai-data">
-                            <div class="field-header">產品特性(K欄) - AI生成</div>
+                            <div class="field-header">
+                                產品特性(K欄) - AI生成
+                                <span class="check-label">請檢查</span>
+                            </div>
                             <div class="field-content">
                                 <textarea id="aiFeatures" rows="4"></textarea>
                                 <button class="refresh-btn" onclick="refreshField('features')">🔄 重新生成</button>
@@ -921,10 +974,15 @@
                     <div class="field-row">
                         <div class="original-data">
                             <div class="field-header">產品規格(L欄) - 原始資料</div>
-                            <div class="field-content" id="originalSpecs">-</div>
+                            <div class="field-content">
+                                <div class="original-display" id="originalSpecs">-</div>
+                            </div>
                         </div>
                         <div class="ai-data">
-                            <div class="field-header">產品規格(L欄) - AI生成</div>
+                            <div class="field-header">
+                                產品規格(L欄) - AI生成
+                                <span class="check-label">請檢查</span>
+                            </div>
                             <div class="field-content">
                                 <textarea id="aiSpecs" rows="4"></textarea>
                                 <button class="refresh-btn" onclick="refreshField('specs')">🔄 重新生成</button>
@@ -941,10 +999,15 @@
                     <div class="field-row">
                         <div class="original-data">
                             <div class="field-header">Media1(V欄) - 原始資料</div>
-                            <div class="field-content" id="originalMedia1">-</div>
+                            <div class="field-content">
+                                <div class="original-display" id="originalMedia1">-</div>
+                            </div>
                         </div>
                         <div class="ai-data">
-                            <div class="field-header">Media1(V欄) - AI生成</div>
+                            <div class="field-header">
+                                Media1(V欄) - AI生成
+                                <span class="check-label">請檢查</span>
+                            </div>
                             <div class="field-content">
                                 <textarea id="aiMedia1" rows="3"></textarea>
                                 <button class="refresh-btn" onclick="refreshField('media1')">🔄 重新生成</button>
@@ -955,10 +1018,15 @@
                     <div class="field-row">
                         <div class="original-data">
                             <div class="field-header">Media2(V欄) - 原始資料</div>
-                            <div class="field-content" id="originalMedia2">-</div>
+                            <div class="field-content">
+                                <div class="original-display" id="originalMedia2">-</div>
+                            </div>
                         </div>
                         <div class="ai-data">
-                            <div class="field-header">Media2(V欄) - AI生成</div>
+                            <div class="field-header">
+                                Media2(V欄) - AI生成
+                                <span class="check-label">請檢查</span>
+                            </div>
                             <div class="field-content">
                                 <textarea id="aiMedia2" rows="3"></textarea>
                                 <button class="refresh-btn" onclick="refreshField('media2')">🔄 重新生成</button>
@@ -969,10 +1037,15 @@
                     <div class="field-row">
                         <div class="original-data">
                             <div class="field-header">Media3(V欄) - 原始資料</div>
-                            <div class="field-content" id="originalMedia3">-</div>
+                            <div class="field-content">
+                                <div class="original-display" id="originalMedia3">-</div>
+                            </div>
                         </div>
                         <div class="ai-data">
-                            <div class="field-header">Media3(V欄) - AI生成</div>
+                            <div class="field-header">
+                                Media3(V欄) - AI生成
+                                <span class="check-label">請檢查</span>
+                            </div>
                             <div class="field-content">
                                 <textarea id="aiMedia3" rows="3"></textarea>
                                 <button class="refresh-btn" onclick="refreshField('media3')">🔄 重新生成</button>
@@ -989,10 +1062,15 @@
                     <div class="field-row">
                         <div class="original-data">
                             <div class="field-header">TAG標籤(Y欄) - 原始資料</div>
-                            <div class="field-content" id="originalTags">-</div>
+                            <div class="field-content">
+                                <div class="original-display" id="originalTags">-</div>
+                            </div>
                         </div>
                         <div class="ai-data">
-                            <div class="field-header">TAG標籤(Y欄) - AI生成</div>
+                            <div class="field-header">
+                                TAG標籤(Y欄) - AI生成
+                                <span class="check-label">請檢查</span>
+                            </div>
                             <div class="field-content">
                                 <textarea id="aiTags" rows="2"></textarea>
                                 <button class="refresh-btn" onclick="refreshField('tags')">🔄 重新生成</button>
@@ -1003,7 +1081,9 @@
                     <div class="field-row">
                         <div class="original-data">
                             <div class="field-header">關聯附件系統ID(AA欄) - 原始資料</div>
-                            <div class="field-content" id="originalAttachmentId">-</div>
+                            <div class="field-content">
+                                <div class="original-display" id="originalAttachmentId">-</div>
+                            </div>
                         </div>
                         <div class="ai-data">
                             <div class="field-header">關聯附件系統ID(AA欄) - 編輯</div>
@@ -1375,7 +1455,7 @@
                 });
             }
 
-            // 載入原始資料 - 將 \n 轉換為實際換行
+            // 載入原始資料 - 不需要處理 \n，讓 CSS white-space: pre-line 自動處理
             document.getElementById('originalSystemId').textContent = productData.systemId || '-';
             document.getElementById('originalAlias').textContent = productData.alias || '-';
             document.getElementById('originalImage').textContent = productData.image || '-';
@@ -1477,870 +1557,3 @@
                     .replace(/\r\n/g, '\\n')
                     .replace(/\r/g, '\\n')
                     .replace(/\n/g, '\\n')
-                    .replace(/\t/g, '\\t');
-                
-                const data = JSON.parse(cleanText);
-                return data;
-            })
-            .then(data => {
-                console.log('AI生成結果:', data);
-                
-                if (data.success && data.generated) {
-                    fillAIGeneratedContent(data.generated);
-                    alert('AI文案生成成功！');
-                } else {
-                    alert('AI生成失敗，請稍後再試');
-                }
-            })
-            .catch(error => {
-                console.error('AI生成失敗:', error);
-                alert(`AI生成失敗: ${error.message}`);
-            })
-            .finally(() => {
-                hideLoading();
-            });
-        }
-
-        function fillAIGeneratedContent(generated) {
-            if (generated.systemId) document.getElementById('aiSystemId').value = generated.systemId;
-            if (generated.alias) document.getElementById('aiAlias').value = generated.alias;
-            if (generated.image) document.getElementById('aiImage').value = generated.image;
-            if (generated.imageDesc) document.getElementById('aiImageDesc').value = generated.imageDesc;
-            if (generated.desc) document.getElementById('aiDesc').value = generated.desc;
-            if (generated.features) document.getElementById('aiFeatures').value = generated.features;
-            if (generated.specs) document.getElementById('aiSpecs').value = generated.specs;
-            if (generated.media1) document.getElementById('aiMedia1').value = generated.media1;
-            if (generated.media2) document.getElementById('aiMedia2').value = generated.media2;
-            if (generated.media3) document.getElementById('aiMedia3').value = generated.media3;
-            if (generated.tags) document.getElementById('aiTags').value = generated.tags;
-        }
-
-        function refreshField(fieldName) {
-            const button = event.target;
-            button.disabled = true;
-            button.textContent = '🔄 生成中...';
-            
-            const productModel = document.getElementById('productModel').value.trim();
-            const productName = document.getElementById('productName').value.trim();
-            
-            if (!productModel || !productName) {
-                alert('請先填入產品型號和產品名稱');
-                button.disabled = false;
-                button.textContent = '🔄 重新生成';
-                return;
-            }
-
-            const requestData = {
-                action: "generate_field",
-                fieldName: fieldName,
-                productModel: productModel,
-                productName: productName
-            };
-
-            const selectedRegulations = [];
-            document.querySelectorAll('input[name="regulations"]:checked').forEach(checkbox => {
-                selectedRegulations.push(checkbox.value);
-            });
-            if (selectedRegulations.length > 0) {
-                requestData.regulations = selectedRegulations.join(', ');
-            }
-
-            const supplierInfo = document.getElementById('supplierInfo').value.trim();
-            if (supplierInfo) {
-                requestData.supplierInfo = supplierInfo;
-            }
-
-            const currentValue = getCurrentFieldValue(fieldName);
-            if (currentValue) {
-                requestData.currentValue = currentValue;
-            }
-
-            if (fieldName.startsWith('media')) {
-                const otherMedias = getOtherMediaContent(fieldName);
-                if (Object.keys(otherMedias).length > 0) {
-                    requestData.otherMediaContent = otherMedias;
-                }
-            }
-
-            console.log('個別欄位重新生成請求:', requestData);
-
-            fetch('https://hook.us1.make.com/fcmy7w7qs45o5r6px58gqjd28k4u2l8b', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(requestData)
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.text();
-            })
-            .then(rawText => {
-                const cleanText = rawText
-                    .replace(/[\u0000-\u001F\u007F-\u009F]/g, '')
-                    .replace(/\r\n/g, '\\n')
-                    .replace(/\r/g, '\\n')
-                    .replace(/\n/g, '\\n')
-                    .replace(/\t/g, '\\t');
-                
-                const data = JSON.parse(cleanText);
-                return data;
-            })
-            .then(data => {
-                console.log(`${fieldName} 重新生成結果:`, data);
-                
-                if (data.success && data.generated) {
-                    updateSpecificField(fieldName, data.generated[fieldName]);
-                } else {
-                    alert('重新生成失敗，請稍後再試');
-                }
-            })
-            .catch(error => {
-                console.error('重新生成失敗:', error);
-                alert(`重新生成失敗: ${error.message}`);
-            })
-            .finally(() => {
-                button.disabled = false;
-                button.textContent = '🔄 重新生成';
-            });
-        }
-
-        function getCurrentFieldValue(fieldName) {
-            const fieldMap = {
-                'alias': 'aiAlias',
-                'desc': 'aiDesc', 
-                'features': 'aiFeatures',
-                'specs': 'aiSpecs',
-                'media1': 'aiMedia1',
-                'media2': 'aiMedia2',
-                'media3': 'aiMedia3',
-                'tags': 'aiTags'
-            };
-
-            const elementId = fieldMap[fieldName];
-            if (elementId) {
-                const element = document.getElementById(elementId);
-                return element ? element.value : '';
-            }
-            return '';
-        }
-
-        function getOtherMediaContent(currentFieldName) {
-            const mediaFields = ['media1', 'media2', 'media3'];
-            const otherMedias = mediaFields.filter(field => field !== currentFieldName);
-            
-            const otherContent = {};
-            otherMedias.forEach(field => {
-                const content = getCurrentFieldValue(field);
-                if (content) {
-                    otherContent[field] = content;
-                }
-            });
-            
-            return otherContent;
-        }
-
-        function updateSpecificField(fieldName, newValue) {
-            const fieldMap = {
-                'alias': 'aiAlias',
-                'desc': 'aiDesc',
-                'features': 'aiFeatures', 
-                'specs': 'aiSpecs',
-                'media1': 'aiMedia1',
-                'media2': 'aiMedia2',
-                'media3': 'aiMedia3',
-                'tags': 'aiTags'
-            };
-
-            const elementId = fieldMap[fieldName];
-            if (elementId && newValue) {
-                const element = document.getElementById(elementId);
-                if (element) {
-                    element.value = newValue;
-                }
-            }
-        }
-
-        function showLoading() {
-            document.getElementById('loadingDiv').classList.add('show');
-            document.getElementById('generateBtn').disabled = true;
-            document.getElementById('generateBtn').textContent = '🤖 生成中...';
-        }
-
-        function hideLoading() {
-            document.getElementById('loadingDiv').classList.remove('show');
-            document.getElementById('generateBtn').disabled = false;
-            document.getElementById('generateBtn').textContent = '🤖 生成AI文案';
-        }
-
-        function toggleSection(element) {
-            const section = element.parentElement;
-            section.classList.toggle('collapsed');
-        }
-
-        function previewData() {
-            const data = collectFormData();
-            
-            if (!data.productModel || !data.productName) {
-                alert('請至少填入產品型號和產品名稱才能預覽');
-                return;
-            }
-            
-            const previewWindow = window.open('', '_blank', 'width=1200,height=800,scrollbars=yes');
-            previewWindow.document.write(generateProductPreviewHTML(data));
-        }
-
-        function generateProductPreviewHTML(data) {
-            const formatFeatures = (features) => {
-                if (!features) return '';
-                
-                const lines = features.split('\n').filter(line => line.trim());
-                return lines.map(line => {
-                    const cleanLine = line.replace(/^[-•*]\s*/, '').trim();
-                    return `<li>${cleanLine}</li>`;
-                }).join('');
-            };
-
-            const formatSpecs = (specs) => {
-                if (!specs) return '<tr><td colspan="2">規格資訊待更新</td></tr>';
-                
-                const lines = specs.split('\n').filter(line => line.trim());
-                let tableRows = '';
-                
-                lines.forEach(line => {
-                    if (line.includes(':') || line.includes('|')) {
-                        const parts = line.split(/[:|]/).map(part => part.trim());
-                        if (parts.length >= 2) {
-                            tableRows += `<tr><td style="background: #f5f5f5; font-weight: bold; width: 120px;">${parts[0]}</td><td>${parts[1]}</td></tr>`;
-                        }
-                    } else if (line.trim()) {
-                        tableRows += `<tr><td colspan="2">${line}</td></tr>`;
-                    }
-                });
-                
-                return tableRows || '<tr><td colspan="2">規格資訊待更新</td></tr>';
-            };
-
-            const parseMediaContent = (mediaData) => {
-                let mediaHTML = '';
-                
-                [mediaData.media1, mediaData.media2, mediaData.media3].forEach((media, index) => {
-                    if (media && media.trim()) {
-                        const parts = media.split('::::');
-                        
-                        if (parts.length >= 2) {
-                            const imageName = parts[0].trim();
-                            const remaining = parts[1];
-                            
-                            const doubleParts = remaining.split('::');
-                            
-                            if (doubleParts.length >= 3) {
-                                const position = doubleParts[0].trim();
-                                const title = doubleParts[1].trim();
-                                const content = doubleParts.slice(2).join('::').trim();
-                                
-                                mediaHTML += `
-                                    <div class="media-section">
-                                        <h3 class="media-title">${title}</h3>
-                                        <div class="media-content">
-                                            ${content.replace(/\n/g, '<br>')}
-                                        </div>
-                                        <div class="media-image">
-                                            <div class="image-placeholder">
-                                                <span>📷 產品圖片 ${index + 1}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                `;
-                            } else {
-                                mediaHTML += `
-                                    <div class="media-section">
-                                        <h3 class="media-title">產品資訊 ${index + 1}</h3>
-                                        <div class="media-content">
-                                            ${remaining.replace(/\n/g, '<br>')}
-                                        </div>
-                                        <div class="media-image">
-                                            <div class="image-placeholder">
-                                                <span>📷 產品圖片 ${index + 1}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                `;
-                            }
-                        } else {
-                            const lines = media.split('\n').filter(line => line.trim());
-                            let title = `產品資訊 ${index + 1}`;
-                            let content = media;
-                            
-                            if (lines.length > 1 && lines[0].length < 50) {
-                                title = lines[0].trim();
-                                content = lines.slice(1).join('\n');
-                            }
-                            
-                            mediaHTML += `
-                                <div class="media-section">
-                                    <h3 class="media-title">${title}</h3>
-                                    <div class="media-content">
-                                        ${content.replace(/\n/g, '<br>')}
-                                    </div>
-                                    <div class="media-image">
-                                        <div class="image-placeholder">
-                                            <span>📷 產品圖片 ${index + 1}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            `;
-                        }
-                    }
-                });
-                
-                return mediaHTML;
-            };
-
-            return `
-                <!DOCTYPE html>
-                <html lang="zh-TW">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>${data.productName} | 產品預覽</title>
-                    <style>
-                        * {
-                            margin: 0;
-                            padding: 0;
-                            box-sizing: border-box;
-                        }
-
-                        body {
-                            font-family: Arial, sans-serif;
-                            line-height: 1.6;
-                            color: #333;
-                            background: white;
-                        }
-
-                        .preview-header {
-                            background: linear-gradient(135deg, #ff6b35 0%, #e53e3e 100%);
-                            color: white;
-                            padding: 10px 0;
-                            text-align: center;
-                            font-size: 14px;
-                            font-weight: bold;
-                            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-                        }
-
-                        .container {
-                            max-width: 1000px;
-                            margin: 0 auto;
-                            padding: 20px;
-                        }
-
-                        .product-header {
-                            display: flex;
-                            gap: 30px;
-                            margin-bottom: 30px;
-                        }
-
-                        .product-images {
-                            flex: 0 0 300px;
-                        }
-
-                        .main-image {
-                            width: 100%;
-                            height: 250px;
-                            background: white;
-                            border: 1px solid #ddd;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            margin-bottom: 15px;
-                            border-radius: 4px;
-                        }
-
-                        .main-image img {
-                            max-width: 100%;
-                            max-height: 100%;
-                            object-fit: contain;
-                        }
-
-                        .image-placeholder {
-                            color: #999;
-                            font-size: 16px;
-                        }
-
-                        .thumbnail-row {
-                            display: flex;
-                            gap: 8px;
-                        }
-
-                        .thumbnail {
-                            width: 60px;
-                            height: 60px;
-                            border: 1px solid #ddd;
-                            background: #f8f9fa;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            font-size: 10px;
-                            color: #999;
-                            border-radius: 4px;
-                        }
-
-                        .product-info {
-                            flex: 1;
-                        }
-
-                        .product-title {
-                            font-size: 24px;
-                            color: #333;
-                            margin-bottom: 8px;
-                            font-weight: normal;
-                        }
-
-                        .product-model {
-                            color: #666;
-                            margin-bottom: 5px;
-                            font-size: 14px;
-                        }
-
-                        .product-alias {
-                            color: #666;
-                            margin-bottom: 15px;
-                            font-size: 14px;
-                        }
-
-                        .description {
-                            font-size: 14px;
-                            line-height: 1.6;
-                            color: #555;
-                            margin-bottom: 20px;
-                        }
-
-                        .inquire-btn {
-                            background: #4CAF50;
-                            color: white;
-                            padding: 10px 20px;
-                            border: none;
-                            border-radius: 4px;
-                            cursor: pointer;
-                            font-size: 14px;
-                            display: inline-flex;
-                            align-items: center;
-                            gap: 5px;
-                        }
-
-                        .section {
-                            margin-bottom: 30px;
-                        }
-
-                        .section-title {
-                            font-size: 18px;
-                            color: #333;
-                            margin-bottom: 15px;
-                            font-weight: normal;
-                        }
-
-                        .section-title .features-label {
-                            color: #e53e3e;
-                            font-weight: bold;
-                        }
-
-                        .features-list {
-                            list-style: none;
-                            padding: 0;
-                        }
-
-                        .features-list li {
-                            padding: 8px 0;
-                            border-bottom: 1px solid #f0f0f0;
-                            position: relative;
-                            padding-left: 20px;
-                            font-size: 14px;
-                            color: #555;
-                        }
-
-                        .features-list li::before {
-                            content: "●";
-                            position: absolute;
-                            left: 0;
-                            color: #333;
-                        }
-
-                        .specs-title {
-                            font-size: 18px;
-                            color: #333;
-                            margin-bottom: 15px;
-                            font-weight: normal;
-                        }
-
-                        .specs-title .specs-label {
-                            color: #e53e3e;
-                            font-weight: bold;
-                        }
-
-                        .specs-table {
-                            width: 100%;
-                            border-collapse: collapse;
-                            border: 1px solid #ddd;
-                            font-size: 14px;
-                        }
-
-                        .specs-table td {
-                            padding: 10px;
-                            border: 1px solid #ddd;
-                            vertical-align: top;
-                        }
-
-                        .media-section {
-                            margin-bottom: 40px;
-                            border-top: 1px solid #eee;
-                            padding-top: 30px;
-                        }
-
-                        .media-title {
-                            font-size: 18px;
-                            color: #333;
-                            margin-bottom: 15px;
-                            font-weight: normal;
-                        }
-
-                        .media-content {
-                            font-size: 14px;
-                            line-height: 1.6;
-                            color: #555;
-                            margin-bottom: 20px;
-                        }
-
-                        .media-image {
-                            text-align: center;
-                            margin-bottom: 20px;
-                        }
-
-                        .media-image img {
-                            max-width: 100%;
-                            height: auto;
-                            border-radius: 8px;
-                            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-                        }
-
-                        .media-image .image-placeholder {
-                            width: 100%;
-                            max-width: 600px;
-                            height: 300px;
-                            background: #f8f9fa;
-                            border: 2px dashed #ddd;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            color: #999;
-                            font-size: 16px;
-                            border-radius: 8px;
-                            margin: 0 auto;
-                        }
-
-                        .close-button {
-                            position: fixed;
-                            top: 20px;
-                            right: 20px;
-                            background: #e53e3e;
-                            color: white;
-                            border: none;
-                            padding: 8px 15px;
-                            border-radius: 4px;
-                            cursor: pointer;
-                            font-size: 12px;
-                            z-index: 1000;
-                            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-                        }
-
-                        .close-button:hover {
-                            background: #c53030;
-                        }
-
-                        @media (max-width: 768px) {
-                            .product-header {
-                                flex-direction: column;
-                                gap: 20px;
-                            }
-
-                            .product-images {
-                                flex: none;
-                            }
-
-                            .container {
-                                padding: 15px;
-                            }
-                        }
-                    </style>
-                </head>
-                <body>
-                    <div class="preview-header">
-                        產品頁面預覽 - 模擬正式網站呈現效果
-                    </div>
-
-                    <button class="close-button" onclick="window.close()">關閉</button>
-
-                    <div class="container">
-                        <div class="product-header">
-                            <div class="product-images">
-                                <div class="main-image">
-                                    ${data.image ? 
-                                        `<img src="${data.image}" alt="${data.productName}">` : 
-                                        `<div class="image-placeholder">產品主圖</div>`
-                                    }
-                                </div>
-                                <div class="thumbnail-row">
-                                    <div class="thumbnail">圖1</div>
-                                    <div class="thumbnail">圖2</div>
-                                    <div class="thumbnail">圖3</div>
-                                    <div class="thumbnail">圖4</div>
-                                </div>
-                            </div>
-
-                            <div class="product-info">
-                                <h1 class="product-title">${data.productName || '產品名稱待設定'}</h1>
-                                
-                                <div class="product-model">
-                                    ${data.productModel || '產品型號待設定'}
-                                </div>
-                                
-                                ${data.alias ? `
-                                    <div class="product-alias">
-                                        ${data.alias}
-                                    </div>
-                                ` : ''}
-
-                                ${data.desc ? `
-                                    <div class="description">
-                                        ${data.desc.replace(/\n/g, '<br>')}
-                                    </div>
-                                ` : ''}
-
-                                <button class="inquire-btn">
-                                    INQUIRE NOW
-                                </button>
-                            </div>
-                        </div>
-
-                        ${data.features ? `
-                            <div class="section">
-                                <h2 class="section-title">Features</h2>
-                                <ul class="features-list">
-                                    ${formatFeatures(data.features)}
-                                </ul>
-                            </div>
-                        ` : ''}
-
-                        ${data.specs ? `
-                            <div class="section">
-                                <h2 class="specs-title">Specification</h2>
-                                <table class="specs-table">
-                                    ${formatSpecs(data.specs)}
-                                </table>
-                            </div>
-                        ` : ''}
-
-                        ${parseMediaContent(data)}
-                    </div>
-                </body>
-                </html>
-            `;
-        }
-
-        function collectFormData() {
-            const selectedRegulations = [];
-            document.querySelectorAll('input[name="regulations"]:checked').forEach(checkbox => {
-                selectedRegulations.push(checkbox.value);
-            });
-
-            // 取得分類系統ID（考慮自訂輸入）
-            let categoryId;
-            const categorySelect = document.getElementById('categoryId');
-            if (categorySelect.value === 'add_new') {
-                categoryId = document.getElementById('customCategoryId').value.trim();
-            } else {
-                categoryId = categorySelect.value.trim();
-            }
-
-            return {
-                productModel: document.getElementById('productModel').value.trim(),
-                categoryId: categoryId,
-                productName: document.getElementById('productName').value.trim(),
-                regulations: selectedRegulations.join(', '),
-                supplierInfo: document.getElementById('supplierInfo').value.trim(),
-                systemId: document.getElementById('aiSystemId').value,
-                alias: document.getElementById('aiAlias').value,
-                image: document.getElementById('aiImage').value,
-                imageDesc: document.getElementById('aiImageDesc').value,
-                desc: document.getElementById('aiDesc').value,
-                features: document.getElementById('aiFeatures').value,
-                specs: document.getElementById('aiSpecs').value,
-                media1: document.getElementById('aiMedia1').value,
-                media2: document.getElementById('aiMedia2').value,
-                media3: document.getElementById('aiMedia3').value,
-                tags: document.getElementById('aiTags').value,
-                attachmentId: document.getElementById('aiAttachmentId').value
-            };
-        }
-
-        function saveData() {
-            const data = collectFormData();
-            
-            if (!data.productModel || !data.categoryId || !data.productName) {
-                alert('請填入所有必填欄位');
-                return;
-            }
-            
-            const action = isUpdateMode ? '更新' : '新增';
-            if (!confirm(`確定要${action}此產品資料嗎？`)) {
-                return;
-            }
-            
-            const saveData = {
-                action: isUpdateMode ? "update_product" : "save_product",
-                mode: isUpdateMode ? "update" : "new",  
-                productModel: data.productModel,
-                categoryId: data.categoryId,
-                productName: data.productName,
-                regulations: data.regulations,
-                supplierInfo: data.supplierInfo,
-                systemId: data.systemId,
-                alias: data.alias,
-                image: data.image,
-                imageDesc: data.imageDesc,
-                desc: data.desc,
-                features: data.features,
-                specs: data.specs,
-                media1: data.media1,
-                media2: data.media2,
-                media3: data.media3,
-                tags: data.tags,
-                attachmentId: data.attachmentId
-            };
-            
-            console.log('儲存資料到Make.com:', saveData);
-            
-            const saveBtn = document.querySelector('.save-btn');
-            const originalText = saveBtn.textContent;
-            saveBtn.disabled = true;
-            saveBtn.textContent = '儲存中...';
-            
-            fetch('https://hook.us1.make.com/qbjof4qul271vsah13306731y4vp7kep', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(saveData)
-            })
-            .then(response => {
-                console.log('Save response status:', response.status);
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                
-                return response.text();
-            })
-            .then(rawText => {
-                console.log('Save response:', rawText);
-                
-                const cleanText = rawText
-                    .replace(/[\u0000-\u001F\u007F-\u009F]/g, '')
-                    .replace(/\r\n/g, '\\n')
-                    .replace(/\r/g, '\\n')
-                    .replace(/\n/g, '\\n')
-                    .replace(/\t/g, '\\t');
-                
-                const result = JSON.parse(cleanText);
-                return result;
-            })
-            .then(result => {
-                if (result.success) {
-                    alert(`產品資料已${action}成功！`);
-                    
-                    if (!isUpdateMode) {
-                        if (confirm('是否要清空表單以新增下一個產品？')) {
-                            clearForm();
-                        }
-                    }
-                } else {
-                    alert(`儲存失敗: ${result.message || '未知錯誤'}`);
-                }
-            })
-            .catch(error => {
-                console.error('儲存失敗:', error);
-                alert(`儲存失敗: ${error.message}`);
-            })
-            .finally(() => {
-                saveBtn.disabled = false;
-                saveBtn.textContent = originalText;
-            });
-        }
-
-        function clearForm() {
-            if (!confirm('確定要清空所有資料嗎？此操作無法復原。')) {
-                return;
-            }
-            
-            // 清空基本欄位
-            document.getElementById('productModel').value = '';
-            document.getElementById('productName').value = '';
-            document.getElementById('supplierInfo').value = '';
-            
-            // 重設分類選擇
-            const categorySelect = document.getElementById('categoryId');
-            categorySelect.value = '';
-            document.getElementById('customCategoryId').value = '';
-            document.getElementById('customCategoryContainer').classList.remove('show');
-            
-            // 清空 Regulations 複選框
-            document.querySelectorAll('input[name="regulations"]').forEach(checkbox => {
-                checkbox.checked = false;
-            });
-            
-            // 清空AI欄位
-            const aiFields = [
-                'aiSystemId', 'aiAlias', 'aiImage', 'aiImageDesc', 
-                'aiDesc', 'aiFeatures', 'aiSpecs',
-                'aiMedia1', 'aiMedia2', 'aiMedia3', 'aiTags'
-            ];
-            
-            aiFields.forEach(field => {
-                const element = document.getElementById(field);
-                if (element) {
-                    element.value = '';
-                }
-            });
-            
-            // 清空原始資料
-            const originalFields = [
-                'originalSystemId', 'originalAlias', 'originalImage', 'originalImageDesc',
-                'originalDesc', 'originalFeatures', 'originalSpecs',
-                'originalMedia1', 'originalMedia2', 'originalMedia3', 'originalTags', 'originalAttachmentId'
-            ];
-            
-            originalFields.forEach(field => {
-                const element = document.getElementById(field);
-                if (element) {
-                    element.textContent = '-';
-                }
-            });
-            
-            // 處理附件ID欄位 - 根據模式決定
-            if (isUpdateMode) {
-                // 更新模式下清空附件ID
-                document.getElementById('aiAttachmentId').value = '';
-            } else {
-                // 新增模式下重新載入預設附件ID
-                loadDefaultAttachmentId();
-            }
-            
-            // 清空當前產品資料
-            currentProductData = {};
-            
-            // 保持目前的操作模式，不重設為新增模式
-        }
-    </script>
-</body>
-</html>
