@@ -420,6 +420,26 @@ font-family: inherit;
 transition: all 0.3s ease;
 background: rgba(255, 255, 255, 0.9);
 }
+    
+.review-badge {
+    background: linear-gradient(135deg, #ff6b35 0%, #e53e3e 100%);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-left: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(229, 62, 62, 0.3);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 2px 4px rgba(229, 62, 62, 0.3); }
+    50% { box-shadow: 0 2px 8px rgba(229, 62, 62, 0.6); }
+    100% { box-shadow: 0 2px 4px rgba(229, 62, 62, 0.3); }
+}
 
 #aiDesc {
 min-height: 120px;
@@ -853,7 +873,7 @@ FDA
 <div class="field-content" id="originalAlias">-</div>
 </div>
 <div class="ai-data">
-<div class="field-header">產品別稱(E欄) - AI生成</div>
+<div class="field-header">產品別稱(E欄) - AI生成<span class="review-badge">請檢查</span></div>
 <div class="field-content">
 <textarea id="aiAlias" rows="3"></textarea>
 <button class="refresh-btn" onclick="refreshField('alias')">🔄 重新生成</button>
@@ -899,7 +919,7 @@ FDA
 <div class="field-content" id="originalDesc">-</div>
 </div>
 <div class="ai-data">
-<div class="field-header">Desc描述(I欄) - AI生成</div>
+<div class="field-header">Desc描述(I欄) - AI生成<span class="review-badge">請檢查</span></div>
 <div class="field-content">
 <textarea id="aiDesc" rows="4"></textarea>
 <button class="refresh-btn" onclick="refreshField('desc')">🔄 重新生成</button>
@@ -913,7 +933,7 @@ FDA
 <div class="field-content" id="originalFeatures">-</div>
 </div>
 <div class="ai-data">
-<div class="field-header">產品特性(K欄) - AI生成</div>
+<div class="field-header">產品特性(K欄) - AI生成<span class="review-badge">請檢查</span></div>
 <div class="field-content">
 <textarea id="aiFeatures" rows="4"></textarea>
 <button class="refresh-btn" onclick="refreshField('features')">🔄 重新生成</button>
@@ -927,7 +947,7 @@ FDA
 <div class="field-content" id="originalSpecs">-</div>
 </div>
 <div class="ai-data">
-<div class="field-header">產品規格(L欄) - AI生成</div>
+<div class="field-header">產品規格(L欄) - AI生成<span class="review-badge">請檢查</span></div>
 <div class="field-content">
 <textarea id="aiSpecs" rows="4"></textarea>
 <button class="refresh-btn" onclick="refreshField('specs')">🔄 重新生成</button>
@@ -947,7 +967,7 @@ FDA
 <div class="field-content" id="originalMedia1">-</div>
 </div>
 <div class="ai-data">
-<div class="field-header">Media1(V欄) - AI生成</div>
+<div class="field-header">Media1(V欄) - AI生成<span class="review-badge">請檢查</span></div>
 <div class="field-content">
 <textarea id="aiMedia1" rows="3"></textarea>
 <button class="refresh-btn" onclick="refreshField('media1')">🔄 重新生成</button>
@@ -961,7 +981,7 @@ FDA
 <div class="field-content" id="originalMedia2">-</div>
 </div>
 <div class="ai-data">
-<div class="field-header">Media2(V欄) - AI生成</div>
+<div class="field-header">Media2(V欄) - AI生成<span class="review-badge">請檢查</span></div>
 <div class="field-content">
 <textarea id="aiMedia2" rows="3"></textarea>
 <button class="refresh-btn" onclick="refreshField('media2')">🔄 重新生成</button>
@@ -975,7 +995,7 @@ FDA
 <div class="field-content" id="originalMedia3">-</div>
 </div>
 <div class="ai-data">
-<div class="field-header">Media3(V欄) - AI生成</div>
+<div class="field-header">Media3(V欄) - AI生成<span class="review-badge">請檢查</span></div>
 <div class="field-content">
 <textarea id="aiMedia3" rows="3"></textarea>
 <button class="refresh-btn" onclick="refreshField('media3')">🔄 重新生成</button>
@@ -995,8 +1015,7 @@ FDA
 <div class="field-content" id="originalTags">-</div>
 </div>
 <div class="ai-data">
-                            <div class="field-header">TAG標籤(Y欄) - AI生成</div>
-                            <div class="field-header">TAG標籤(Y欄) - AI生成<span class="review-badge">請檢查</span></div>
+<div class="field-header">TAG標籤(Y欄) - AI生成<span class="review-badge">請檢查</span></div>
 <div class="field-content">
 <textarea id="aiTags" rows="2"></textarea>
 <button class="refresh-btn" onclick="refreshField('tags')">🔄 重新生成</button>
