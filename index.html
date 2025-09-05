@@ -992,7 +992,7 @@
                             <div class="field-content" id="originalTags">-</div>
                         </div>
                         <div class="ai-data">
-                            <div class="field-header">TAG標籤(Y欄) - AI生成</div>
+                            <div class="field-header">TAG標籤(Y欄) - AI生成<span class="review-badge">請檢查</span></div>
                             <div class="field-content">
                                 <textarea id="aiTags" rows="2"></textarea>
                                 <button class="refresh-btn" onclick="refreshField('tags')">🔄 重新生成</button>
@@ -1375,7 +1375,7 @@
                 });
             }
 
-            // 載入原始資料
+            // 載入原始資料 - 將 \n 轉換為實際換行
             document.getElementById('originalSystemId').textContent = productData.systemId || '-';
             document.getElementById('originalAlias').textContent = productData.alias || '-';
             document.getElementById('originalImage').textContent = productData.image || '-';
