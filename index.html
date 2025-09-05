@@ -2298,10 +2298,14 @@ return result;
 if (result.success) {
 alert(`產品資料已${action}成功！`);
 
-if (!isUpdateMode) {
-if (confirm('是否要清空表單以新增下一個產品？')) {
-clearForm();
-}
+if (isUpdateMode) {
+    if (confirm('是否要清空表單以修改下一個產品？')) {
+        clearForm();
+    }
+} else {
+    if (confirm('是否要清空表單以新增下一個產品？')) {
+        clearForm();
+    }
 }
 } else {
 alert(`儲存失敗: ${result.message || '未知錯誤'}`);
@@ -2378,7 +2382,20 @@ loadDefaultAttachmentId();
 // 清空當前產品資料
 currentProductData = {};
 
-// 保持目前的操作模式，不重設為新增模式
+// 根據當前模式決定後續行為
+if (isUpdateMode) {
+    // 修改模式下清空後，解鎖相關欄位以便載入新產品
+    document.getElementById('categoryId').disabled = false;
+    document.getElementById('customCategoryId').disabled = false;
+    document.getElementById('productName').disabled = false;
+    
+    // 清空產品型號以便輸入新的型號
+    document.getElementById('productModel').value = '';
+    
+    // 保持在修改模式
+} else {
+    // 新增模式保持原有邏輯
+}
 }
 </script>
 </body>
